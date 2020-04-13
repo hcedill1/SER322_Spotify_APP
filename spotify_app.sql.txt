@@ -1,0 +1,33 @@
+CREATE TABLE ALBUM( Album_ID VARCHAR(50), 
+     Title VARCHAR(100), 
+     Artist_Name VARCHAR(100), 
+     Album_Track VARCHAR(100), 
+     Release_Date VARCHAR(30), 
+     Genre_ID VARCHAR(50));
+
+CREATE TABLE ARTIST(Artist_ID VARCHAR(50), 
+	 Artist_Name VARCHAR(100), 
+     Fans VARCHAR(100), 
+     Track_Name VARCHAR(100));
+
+CREATE TABLE GENRE(Genre_ID VARCHAR(50), 
+     Type VARCHAR(100));
+
+CREATE TABLE PLAYLIST(Playlist_ID VARCHAR(50), 
+	  Playlist_Title VARCHAR(100),
+	  Playlist_Duration VARCHAR(20), 
+	  Date_Added VARCHAR(30), 
+	  User_Playlist_ID VARCHAR(50)); 
+
+CREATE TABLE USER(User_Playlist_ID VARCHAR(50), 
+	  Followers VARCHAR(100));
+
+ CREATE TABLE POPULARITY(Followers VARCHAR(100), 
+	  Likes VARCHAR(30),  
+	  Track_Name VARCHAR(100),  
+      Playlist_ID VARCHAR(50),
+      Album_ID VARCHAR(50));
+
+ CREATE TABLE TRACKS(Track_Name VARCHAR(100), 
+	 Track_Duration VARCHAR(20),
+	 Album_ID VARCHAR(50));
