@@ -85,3 +85,19 @@ INSERT INTO Playlist
 INSERT INTO Popularity 
     VALUES('Followers1','Likes1','Track1');
 
+
+
+SELECT * FROM Album; 
+
+SELECT * FROM Artist; 
+
+SELECT * FROM Genre; 
+
+SELECT * FROM Playlist; 
+
+SELECT * FROM Popularity; 
+
+SELECT * FROM Tracks; 
+
+SELECT * FROM User;
+
