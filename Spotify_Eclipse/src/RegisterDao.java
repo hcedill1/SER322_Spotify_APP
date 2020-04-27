@@ -7,7 +7,7 @@ public class RegisterDao {
     
     private String dburl= "jdbc:mysql://localhost:3306/spotify";
     private String dbuname = "root";
-    private String dbpassword = "Tuesday10!";
+    private String dbpassword = ""; //Type in your password
     private String dbdriver = "com.mysql.jdbc.Driver";
     
     public void loadDriver(String dbDriver) {
