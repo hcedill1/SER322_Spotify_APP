@@ -34,38 +34,59 @@ public class Register extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    /*
-	    String album = request.getParameter("Album");
-        String artist = request.getParameter("Artist");
-        String genre = request.getParameter("Genre");
-        String playlist = request.getParameter("Playlist");
-        String popularity = request.getParameter("Popularity");
-        String tracks = request.getParameter("Tracks");
-        String user = request.getParameter("User");
-        
-	    
         String albumId = request.getParameter("Album_ID");
         String albumTitle = request.getParameter("Title");
         String artistName = request.getParameter("Artist_Name");
         String albumTrack = request.getParameter("Album_Track");
         String albumRelease = request.getParameter("Release_Date");
-        String albgenreId = request.getParameter("Genre_ID");
-        */
-	    
+        
         String genreId = request.getParameter("Genre_ID");
         String type = request.getParameter("Type");
         
+        String trackName = request.getParameter("Track_Name");
+        String trackDur = request.getParameter("Track_Duration");
         
-        //Music music = new Music(album, artist, genre, playlist, popularity, tracks, user);
-        //Album album = new Album(albumId, albumTitle, artistName, albumTrack, albumRelease, albgenreId);
+        String artistN = request.getParameter("Artist_Name");
+        String artistAlbum = request.getParameter("Album_Name");
+        String fans = request.getParameter("Fans");
+        
+        String userId = request.getParameter("User_Playlist_ID");
+        String userFollowers = request.getParameter("Followers");
+        
+        String playlistId = request.getParameter("Playlist_ID");
+        String playlistTitle = request.getParameter("Playlist_Title");
+        String playlistDur = request.getParameter("Playlist_Duration");
+        String playlistAdded = request.getParameter("Date_Added");
+        
+        String popFollowers = request.getParameter("Followers");
+        String popLikes = request.getParameter("Likes");
+        
+        Album album = new Album(albumId, albumTitle, artistName, albumTrack, albumRelease, genreId);
         Genre genre = new Genre(genreId, type);
+        Tracks track = new Tracks(trackName, trackDur, albumId);
+        Artist artist = new Artist(artistN, artistAlbum, trackName, fans);
+        User user = new User(userId, userFollowers);
+        Playlist playlist = new Playlist(playlistId, playlistTitle, playlistDur, playlistAdded, userId);
+        Popularity popularity = new Popularity(popFollowers, popLikes, trackName);
+        
         RegisterDao rDao = new RegisterDao();
         
-        //String result = rDao.insert(music);
-        //String result = rDao.insertAlbum(album);
-        String result = rDao.insertGenre(genre);
+        String resultAlbum = rDao.insertAlbum(album);
+        String resultGenre = rDao.insertGenre(genre);
+        String resultTracks = rDao.insertTracks(track);
+        String resultArtist = rDao.insertArtist(artist);
+        String resultUser = rDao.insertUser(user);
+        String resultPlaylist = rDao.insertPlaylist(playlist);
+        String resultPop = rDao.insertPopularity(popularity);
         
-        response.getWriter().print(result);
+        response.getWriter().print(resultGenre);
+        response.getWriter().print(resultAlbum);
+        response.getWriter().print(resultTracks);
+        response.getWriter().print(resultArtist);
+        response.getWriter().print(resultUser);
+        response.getWriter().print(resultPlaylist);
+        response.getWriter().print(resultPop);
+        
 	}
 
 }
